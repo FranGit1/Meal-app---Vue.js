@@ -18,7 +18,7 @@ const routes = [
         component: Home,
       },
       {
-        path: "/letter/:letter?",
+        path: "/by-letter/:letter?",
         name: "byLetter",
         component: MealsByLetter,
       },

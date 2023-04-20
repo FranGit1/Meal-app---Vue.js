@@ -1,10 +1,10 @@
 <template>
   <input
     type="text"
-    :value="keyword"
+    :value="props.keyword"
     class="rounded border-2 border-gray-200 w-full"
     @input="$emit('update:keyword', $event.target.value)"
-    placeholder="Search for Meals by Name"
+    :placeholder="`Search for Meals by ${props.searchBy}`"
     @change="searchMeals"
   />
 </template>
@@ -20,6 +20,11 @@ onMounted(() => {
 });
 
 const props = defineProps({
+  searchBy: {
+    type: String,
+    required: false,
+  },
+
   keyword: {
     type: String,
     required: true,

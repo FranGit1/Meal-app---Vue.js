@@ -1,6 +1,10 @@
 <template>
   <div class="p-8">
-    <SearchBar :keyword="keyword" v-on:update:keyword="keyword = $event" />
+    <SearchBar
+      :keyword="keyword"
+      v-on:update:keyword="keyword = $event"
+      searchBy="Name"
+    />
     <Meals :meals="meals" />
   </div>
 </template>
@@ -23,8 +27,5 @@ const meals = computed(() => store.state.searchedMeals);
 
 onBeforeMount(() => {
   keyword.value = route.params.name;
-  // if (keyword.value) {
-  //   searchMeals();
-  // }
 });
 </script>
