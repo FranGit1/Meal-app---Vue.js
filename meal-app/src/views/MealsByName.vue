@@ -11,20 +11,18 @@
 
 <script setup>
 import SearchBar from "../components/SearchBar.vue";
-import { computed } from "@vue/reactivity";
+import { computed, reactive } from "@vue/reactivity";
 import { useRoute } from "vue-router";
-import { ref, onBeforeMount } from "vue";
+import { ref, onBeforeMount, onMounted } from "vue";
 import store from "../store";
 import Meals from "../components/Meals.vue";
 
 const route = useRoute();
 const keyword = ref("");
 const meals = computed(() => store.state.searchedMeals);
-
-// function searchMeals() {
-//   store.dispatch("searchMeals", keyword.value);
-// }
-
+onMounted(() => {
+  store.commit("setSearchedMeals", null);
+});
 onBeforeMount(() => {
   keyword.value = route.params.name;
 });

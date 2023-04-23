@@ -13,11 +13,13 @@
 
 <script setup>
 import MealItem from "./MealItem.vue";
-
-const { meals, keyword } = defineProps({
+import { onUpdated } from "vue";
+const { meals } = defineProps({
   meals: {
     required: true,
     type: Array,
   },
 });
+
+onUpdated(() => {});
 </script>
